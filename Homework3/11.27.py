@@ -15,34 +15,41 @@ for i in sorted(players):
     print('Jersey number: {}, Rating: {}'.format(i, players[i]))
 
 
-print('\nMENU')
-print('a - Add player\n'
-      'd - Remove player\n'
-      'u - Update player rating\n'
-      'r - Output players above a rating\n'
-      'o - Output roster\n'
-      'q - Quit\n')
+while(1):
+    print('\nMENU')
+    print('a - Add player\n'
+    'd - Remove player\n'
+    'u - Update player rating\n'
+    'r - Output players above a rating\n'
+    'o - Output roster\n'
+    'q - Quit\n')
 
-command = (input('Choose an option:\n'))
+    command = (input('Choose an option:\n'))
 
-
-if command == 'a':
-    print("Enter a new player's jersey number:")
-    jers_num = int(input())
-    print("Enter a new player's jersey number:")
-    rating = int(input())
-    players[jers_num] = rating
-elif command == 'd':
-    print("Enter a jersey number:\n")
-    jers_num = int(input())
-    players.pop(jers_num)
-elif command == 'u':
-    print("Enter a jersey number:\n")
-    jers_num = int(input())
-    print("Enter a new rating for player:\n")
-    rating = int(input())
-    players[jers_num] = rating
-elif command == 'r':
-    print("Enter a rating:\n")
-    rating = int(input())
-    print("\n\nABOVE {}".format(rating))
+    if command == 'a':
+        print("Enter a new player's jersey number:")
+        jers_num = int(input())
+        print("Enter a new player's jersey number:")
+        rating = int(input())
+        players[jers_num] = rating
+    elif command == 'd':
+        print("Enter a jersey number:\n")
+        jers_num = int(input())
+        players.pop(jers_num)
+    elif command == 'u':
+        print("Enter a jersey number:\n")
+        jers_num = int(input())
+        print("Enter a new rating for player:\n")
+        rating = int(input())
+        players[jers_num] = rating
+    elif command == 'r':
+        print("Enter a rating:\n")
+        rating = int(input())
+        for i in sorted(players):
+            if players[i] > rating:
+                print("\n\nABOVE {}".format(rating))
+    elif command == 'o':
+        for i in sorted(players):
+            print('Jersey number: {}, Rating: {}'.format(i, players[i]))
+    else:
+        exit(0)
