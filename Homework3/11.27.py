@@ -1,21 +1,21 @@
 # Mauricio Corado 1254732
 
-players = dict()
+players = dict()        # creates an empty Dict
 
 count = 0
-while count < 5:
+while count < 5:            # while loop is used in order to populate the players dictionary
     jers_num = int(input("Enter player {}'s jersey number:\n".format(count+1)))
     rating = int(input("Enter player {}'s rating:\n".format(count+1)))
     print('')
     players[jers_num] = rating
     count = count + 1
 
-print('ROSTER')
+print('ROSTER')             # this section prints out the complete sorted roster
 for i in sorted(players):
     print('Jersey number: {}, Rating: {}'.format(i, players[i]))
 
 
-while(1):
+while(1):                   # Big while loop is used to run the menu option. Will exit until q is selected
     print('\nMENU')
     print('a - Add player\n'
     'd - Remove player\n'
@@ -45,10 +45,12 @@ while(1):
     elif command == 'r':
         print("Enter a rating:\n")
         rating = int(input())
+        print("\n\nABOVE {}".format(rating))
         for i in sorted(players):
             if players[i] > rating:
-                print("\n\nABOVE {}".format(rating))
+                print('Jersey number: {}, Rating: {}'.format(i, players[i]))
     elif command == 'o':
+        print('ROSTER')
         for i in sorted(players):
             print('Jersey number: {}, Rating: {}'.format(i, players[i]))
     else:
