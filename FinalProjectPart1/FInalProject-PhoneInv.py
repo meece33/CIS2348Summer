@@ -35,7 +35,7 @@ item_type = 'phone'
 # list of the items to be stored in
 phone_list = []
 count = 0
-# This loop goes through Manufacturer List and populates it_list only when the item type matches
+# This loop goes through Manufacturer List and populates phone_list only when the item type matches
 while count < len(ManList):
     if item_type == ManList[count][2]:
         phone_list.append(ManList[count][0])
