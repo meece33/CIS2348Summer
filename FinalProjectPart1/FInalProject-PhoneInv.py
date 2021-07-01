@@ -30,31 +30,38 @@ ManList.sort(key=lambda x: x[0])
 price_list.sort(key=lambda x: x[0])
 service_list.sort(key=lambda x: x[0])
 
-# creates a new list
-full_inv = []
+# Sets the item type to laptop which is the type of report we want
+item_type = 'phone'
+# list of the items to be stored in
+phone_list = []
 count = 0
-# Loop that takes in the values in the correct order
+# This loop goes through Manufacturer List and populates it_list only when the item type matches
 while count < len(ManList):
-    full_inv.append(ManList[count][0])
-    full_inv.append(ManList[count][1])
-    full_inv.append(ManList[count][2])
-    full_inv.append(price_list[count][1])
-    full_inv.append(service_list[count][1])
-    full_inv.append(ManList[count][3])
-    count = count + 1
+    if item_type == ManList[count][2]:
+        phone_list.append(ManList[count][0])
+        phone_list.append(ManList[count][1])
+        phone_list.append(price_list[count][1])
+        phone_list.append(service_list[count][1])
+        phone_list.append(ManList[count][3])
+        count = count + 1
+    else:
+        count = count + 1
 
-# had to create a new list so I can Nest the first list into so it is easier to sort
-new_full_inv = []
+
+# second loop that makes a list of lists so it can be sorted
+final_phone_list = []
 count2 = 0
-fields = 6
-while count2 < len(full_inv):
-    new_full_inv.append(full_inv[count2:fields])
-    count2 = count2 + 6
-    fields = fields + 6
+fields = 5
+while count2 < len(phone_list):
+    final_phone_list.append(phone_list[count2:fields])
+    count2 = count2 + 5
+    fields = fields + 5
 
-# sorts the new nested list
-new_full_inv.sort(key=lambda x: x[1])
+# Sorted the nested list
+final_phone_list.sort(key=lambda x: x[0])
+print(final_phone_list)
 
-with open('FullInventory.csv', 'w', newline='') as csvfile:
+# method to write csv
+with open('PhoneInventory.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
-    writer.writerows(new_full_inv)
+    writer.writerows(final_phone_list)

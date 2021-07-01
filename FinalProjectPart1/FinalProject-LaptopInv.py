@@ -64,4 +64,3 @@ final_it_list.sort(key=lambda x: x[0])
 with open('LaptopInventory.csv', 'w', newline='') as csvfile:
     writer = csv.writer(csvfile)
     writer.writerows(final_it_list)
-
