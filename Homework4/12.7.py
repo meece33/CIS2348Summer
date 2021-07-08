@@ -7,7 +7,7 @@ def get_age():                      # get age method uses to error check the age
     age = int(input())
 
     if (least > age) or (age > most):
-        raise ValueError('Invalid Age.')
+        raise ValueError('Invalid age.')
     return age
 
 
@@ -19,7 +19,7 @@ if __name__ == "__main__":      # main code checks for value error
     try:
         age = get_age()
         hr = fat_burning_heart_rate(age)
-        print('Fat burning hear rate for a {} year-old: {} bpm'.format(age, hr))
+        print('Fat burning heart rate for a {} year-old: {} bpm'.format(age, hr))
     except ValueError as wrong:
         print(wrong)
         print('Could not calculate heart rate info.')
