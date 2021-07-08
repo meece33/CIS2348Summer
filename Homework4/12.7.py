@@ -23,3 +23,4 @@ if __name__ == "__main__":      # main code checks for value error
     except ValueError as wrong:
         print(wrong)
         print('Could not calculate heart rate info.')
+        print('')
