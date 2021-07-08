@@ -4,8 +4,8 @@ number_calls = 0                           # keeps count of calls
 
 
 def partition(user_ids, i, k):          # Partition method/function
-    partition_indx = i             # sets pivot
-    pivot = (i + k) // 2
+    pivot = (i + k) // 2        # sets pivot
+    partition_indx = i
     while partition_indx <= k:
         while user_ids[partition_indx] < user_ids[pivot]:
             partition_indx = partition_indx+1
@@ -26,7 +26,7 @@ def quicksort(user_ids, i, k):
     if i >= k:
         return
     partition_indx = partition(user_ids, i, k)
-    quicksort(user_ids, i, partition_indx-1)
+    quicksort(user_ids, i, partition_indx - 1)
     quicksort(user_ids, partition_indx, k)
 
 if __name__ == "__main__":
