@@ -15,5 +15,5 @@ def selection_sort_descend_trace(numbers):  # section 14.6 in the book helped wi
     return numbers
 
 if __name__ == "__main__":
-    numbers = input(' ').split()                # splits the input
+    numbers = input('').split()                # splits the input
     selection_sort_descend_trace(numbers)   # calls the method
